@@ -5,7 +5,6 @@ import json
 import curses
 from openai import OpenAI
 import openai
-import textwrap
 
 # ----------------------------
 # Configuration
