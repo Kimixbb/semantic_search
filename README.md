@@ -70,6 +70,8 @@ python3 semantic_search.py ~/documents/research.txt
 - `k` / `↑` - Scroll up one line
 - `Page Down` - Scroll down one page
 - `Page Up` - Scroll up one page
+- `Ctrl-D` - Scroll down half page
+- `Ctrl-U` - Scroll up half page
 - `Home` - Jump to start of file
 - `End` - Jump to end of file
 

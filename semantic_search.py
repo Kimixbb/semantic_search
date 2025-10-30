@@ -305,6 +305,12 @@ class SemanticLess:
                 self.pos = min(self.pos + self.height - 2, len(self.lines) - 1)
             elif c == curses.KEY_PPAGE:  # Page up
                 self.pos = max(self.pos - (self.height - 2), 0)
+            elif c == 4:  # Ctrl-D - scroll down half page
+                half_page = (self.height - 2) // 2
+                self.pos = min(self.pos + half_page, len(self.lines) - 1)
+            elif c == 21:  # Ctrl-U - scroll up half page
+                half_page = (self.height - 2) // 2
+                self.pos = max(self.pos - half_page, 0)
             elif c == curses.KEY_HOME:  # Jump to start of file
                 self.pos = 0
             elif c == curses.KEY_END:  # Jump to end of file
