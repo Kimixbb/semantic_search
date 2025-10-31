@@ -13,15 +13,43 @@ A terminal-based file viewer with AI-powered semantic search. Like `less`, but w
 
 ## Requirements
 
-- Python 3.6+
+- Python 3.8+
 - DeepSeek API key (free tier available)
 - Dependencies: `openai` library
 
 ## Installation
 
-1. Clone or download this repository:
+### Option 1: Install via APT (Recommended)
+
+For Debian/Ubuntu systems, install from our APT repository for automatic updates:
+
+**📦 [View detailed APT installation instructions](https://github.com/Kimixbb/semantic-search-apt)**
+
+Or use this quick command:
 ```bash
-git clone <repository-url>
+# Add repository key
+wget -qO- https://kimixbb.github.io/semantic-search-apt/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/semantic-search-keyring.gpg > /dev/null
+
+# Add repository
+echo "deb [signed-by=/usr/share/keyrings/semantic-search-keyring.gpg] https://kimixbb.github.io/semantic-search-apt stable main" | sudo tee /etc/apt/sources.list.d/semantic-search.list
+
+# Install
+sudo apt update
+sudo apt install semantic-search
+```
+
+Then set your API key:
+```bash
+export DEEPSEEK_API_KEY="your-api-key-here"
+```
+
+Get your API key from: https://platform.deepseek.com/api_keys
+
+### Option 2: Install via pip (Manual)
+
+1. Clone this repository:
+```bash
+git clone https://github.com/Kimixbb/semantic_search
 cd semantic_search
 ```
 
@@ -30,11 +58,7 @@ cd semantic_search
 pip install openai
 ```
 
-3. Get a DeepSeek API key:
-   - Visit https://platform.deepseek.com/api_keys
-   - Sign up and create an API key
-
-4. Set your API key as an environment variable:
+3. Set your API key:
 ```bash
 export DEEPSEEK_API_KEY="your-api-key-here"
 ```
@@ -43,14 +67,20 @@ To make it permanent, add the above line to your `~/.bashrc` or `~/.zshrc`.
 
 ## Usage
 
+**If installed via APT:**
+```bash
+semantic-search <filename>
+```
+
+**If running from source:**
 ```bash
 python3 semantic_search.py <filename>
 ```
 
-**Example:**
+**Examples:**
 ```bash
-python3 semantic_search.py /var/log/syslog
-python3 semantic_search.py ~/documents/research.txt
+semantic-search /var/log/syslog
+semantic-search ~/documents/research.txt
 ```
 
 ## Key Bindings
@@ -100,11 +130,12 @@ Control search precision with three modes:
   <img src="example-workflow.gif" alt="Semantic search workflow demonstration" width="800"/>
 </p>
 
-The demo above shows semantic search in action:
+The demo above shows semantic search in action (The GIF is running from source):
 
 1. **Open the log file:**
    ```bash
-   python3 semantic_search.py server.log
+   semantic-search server.log
+   # Or if running from source: python3 semantic_search.py server.log
    ```
 
 2. **Navigate the file:**
