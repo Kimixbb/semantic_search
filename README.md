@@ -23,7 +23,7 @@ A terminal-based file viewer with AI-powered semantic search. Like `less`, but w
 
 For Debian/Ubuntu systems, install from our APT repository for automatic updates:
 
-**📦 [View detailed APT installation instructions](https://github.com/Kimixbb/semantic-search-apt)**
+**📦 [View detailed APT installation instructions](https://kimixbb.github.io/semantic-search-apt)**
 
 Or use this quick command:
 ```bash
